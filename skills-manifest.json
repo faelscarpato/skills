@@ -1,0 +1,133 @@
+{
+  "name": "faelscarpato-skills-library",
+  "version": "1.0.0",
+  "description": "Manifesto de descoberta para biblioteca de skills hospedada em GitHub Pages e GitHub.",
+  "repository": "https://github.com/faelscarpato/skills",
+  "website": "https://faelscarpato.github.io/skills/",
+  "default_branch": "main",
+  "base_path": ".agents/skills",
+  "skill_file_candidates": [
+    "SKILL.md",
+    "README.md",
+    "skill.md",
+    "instructions.md",
+    "prompt.md",
+    "SYSTEM.md"
+  ],
+  "categories": [
+    {
+      "id": "🤖 AI & Agentes",
+      "label": "🤖 AI & Agentes",
+      "count": 67
+    },
+    {
+      "id": "☁️ Azure SDK & Cloud",
+      "label": "☁️ Azure SDK & Cloud",
+      "count": 3
+    },
+    {
+      "id": "☁️ AWS & Cloud",
+      "label": "☁️ AWS & Cloud",
+      "count": 6
+    },
+    {
+      "id": "☁️ GCP & Cloud",
+      "label": "☁️ GCP & Cloud",
+      "count": 0
+    },
+    {
+      "id": "☁️ DevOps & Infra",
+      "label": "☁️ DevOps & Infra",
+      "count": 24
+    },
+    {
+      "id": "⚖️ Legal & Compliance",
+      "label": "⚖️ Legal & Compliance",
+      "count": 7
+    },
+    {
+      "id": "⚙️ Linguagens & Ferramentas",
+      "label": "⚙️ Linguagens & Ferramentas",
+      "count": 13
+    },
+    {
+      "id": "⚛️ Frontend & Web",
+      "label": "⚛️ Frontend & Web",
+      "count": 30
+    },
+    {
+      "id": "🎨 Design & UI/UX",
+      "label": "🎨 Design & UI/UX",
+      "count": 29
+    },
+    {
+      "id": "🎮 Games",
+      "label": "🎮 Games",
+      "count": 4
+    },
+    {
+      "id": "🎵 Mídia & Criação",
+      "label": "🎵 Mídia & Criação",
+      "count": 14
+    },
+    {
+      "id": "📊 Dados, ML & Analytics",
+      "label": "📊 Dados, ML & Analytics",
+      "count": 11
+    },
+    {
+      "id": "📝 Conteúdo & Escrita",
+      "label": "📝 Conteúdo & Escrita",
+      "count": 15
+    },
+    {
+      "id": "📱 Mobile",
+      "label": "📱 Mobile",
+      "count": 8
+    },
+    {
+      "id": "🔒 Segurança & Compliance",
+      "label": "🔒 Segurança & Compliance",
+      "count": 10
+    },
+    {
+      "id": "🔗 Automação & Integrações",
+      "label": "🔗 Automação & Integrações",
+      "count": 23
+    },
+    {
+      "id": "🔧 Backend & APIs",
+      "label": "🔧 Backend & APIs",
+      "count": 29
+    },
+    {
+      "id": "🗄️ Banco de Dados",
+      "label": "🗄️ Banco de Dados",
+      "count": 13
+    },
+    {
+      "id": "🚀 Produto & Marketing",
+      "label": "🚀 Produto & Marketing",
+      "count": 11
+    },
+    {
+      "id": "🛠️ Dev Tools & Misc",
+      "label": "🛠️ Dev Tools & Misc",
+      "count": 26
+    },
+    {
+      "id": "🧠 LLM & Prompts",
+      "label": "🧠 LLM & Prompts",
+      "count": 5
+    },
+    {
+      "id": "🧪 Testes & QA",
+      "label": "🧪 Testes & QA",
+      "count": 13
+    }
+  ],
+  "stats": {
+    "categories": 22,
+    "skills": 361
+  }
+}
