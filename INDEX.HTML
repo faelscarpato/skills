@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca de Skills</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #141416;
+      --surface-2: #1a1a1d;
+      --surface-3: #212126;
+      --surface-4: #292932;
+      --border: #2a2a30;
+      --border-soft: #1e1e24;
+      --text: #e8e8ec;
+      --text-muted: #9a9aa6;
+      --text-faint: #5d5d67;
+      --accent: #7c6af0;
+      --accent-hover: #6a57e0;
+      --accent-glow: rgba(124, 106, 240, 0.18);
+      --accent-2: #3dd6a3;
+      --accent-2-glow: rgba(61, 214, 163, 0.12);
+      --radius: 10px;
+      --radius-lg: 16px;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.38);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; }
+    button, input, select { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      background: rgba(20, 20, 22, 0.94);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px; color: var(--text); white-space: nowrap; }
+    .logo small { display: block; color: var(--text-muted); font-weight: 500; font-size: 11px; margin-top: 2px; }
+    .search-wrap { flex: 1; max-width: 520px; position: relative; }
+    .search-wrap input { width: 100%; background: var(--surface-3); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px 10px 36px; color: var(--text); font-size: 13px; outline: none; transition: border-color .2s, box-shadow .2s; }
+    .search-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+    .search-wrap .ico { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+
+    .stats { margin-left: auto; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+    .stat { text-align: right; }
+    .stat-n { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .stat-l { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    .btn-primary, .btn-ghost, .btn-danger {
+      border-radius: var(--radius);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; border: none; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-ghost { background: var(--surface-3); border: 1px solid var(--border); color: var(--text-muted); }
+    .btn-ghost:hover { color: var(--text); border-color: var(--text-muted); }
+
+    .filter-bar {
+      padding: 12px 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(13, 13, 15, 0.94);
+      position: sticky;
+      top: 72px;
+      z-index: 99;
+      backdrop-filter: blur(10px);
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 12px;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover { background: var(--surface-3); color: var(--text); }
+    .filter-btn.active { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); }
+    .filter-btn.all { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .main { padding: 24px; max-width: 1440px; margin: 0 auto; }
+
+    .cat-section {
+      margin-bottom: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .cat-section:hover { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25); border-color: var(--border); }
+
+    .cat-header {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .cat-header:hover { background: var(--surface-2); }
+    .cat-emoji { font-size: 20px; line-height: 1; flex-shrink: 0; }
+    .cat-name { font-weight: 700; font-size: 14px; flex: 1; }
+    .cat-count { background: var(--surface-3); color: var(--text-muted); font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--border); }
+    .cat-chevron { color: var(--text-faint); transition: transform .2s; flex-shrink: 0; }
+    .cat-section.collapsed .cat-chevron { transform: rotate(-90deg); }
+
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 20px; }
+    .cat-section.collapsed .skills-grid { display: none; }
+
+    .skill-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      padding: 8px 10px;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .15s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .skill-chip:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+    .skill-chip.highlight { background: rgba(255, 220, 0, 0.08); border-color: rgba(255, 220, 0, 0.4); color: #ffd700; }
+
+    .empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+    .empty h3 { font-size: 18px; margin-bottom: 8px; color: var(--text); }
+    .empty p { font-size: 13px; }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all .25s;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.76);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+      padding: 16px;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      width: min(1200px, 100%);
+      max-height: 92vh;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-head { padding: 20px 22px 14px; border-bottom: 1px solid var(--border-soft); }
+    .modal-title { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--text); margin-bottom: 6px; }
+    .modal-sub { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    .meta-bar {
+      padding: 14px 22px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-soft);
+      background: var(--surface-2);
+    }
+    .meta-card { background: var(--surface-3); border: 1px solid var(--border); border-radius: 10px; padding: 12px; min-width: 0; }
+    .meta-label { font-size: 11px; color: var(--text-faint); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .04em; }
+    .meta-value { font-size: 12px; color: var(--text-muted); word-break: break-all; line-height: 1.5; }
+
+    .code-wrap { overflow: auto; background: #0a0a0c; }
+    .code-box { min-height: 420px; }
+    pre.code-box { margin: 0; padding: 18px 22px 28px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.65; color: #d9d9e3; white-space: pre; overflow: auto; }
+
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 22px 18px;
+      border-top: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+      background: var(--surface);
+    }
+    .footer-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .ai-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .ai-select { background: var(--surface-3); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 12px; color: var(--text); font-size: 13px; min-width: 180px; outline: none; }
+    .ai-select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+
+    .top-actions { display: flex; gap: 8px; align-items: center; }
+    .repo-badge { font-size: 12px; color: var(--accent-2); background: var(--accent-2-glow); border: 1px solid rgba(61,214,163,.22); border-radius: 999px; padding: 7px 10px; }
+
+    @media (max-width: 980px) {
+      .meta-bar { grid-template-columns: 1fr; }
+      .modal { grid-template-rows: auto auto 1fr auto; }
+    }
+
+    @media (max-width: 700px) {
+      header { flex-wrap: wrap; gap: 10px; }
+      .stats { margin-left: 0; width: 100%; justify-content: space-between; }
+      .filter-bar { top: auto; position: relative; }
+      .main { padding: 12px; }
+      .modal-head, .meta-bar, .modal-footer, pre.code-box { padding-left: 16px; padding-right: 16px; }
+      .modal-footer { justify-content: flex-start; }
+      .ai-select { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect width="28" height="28" rx="7" fill="#7c6af0" />
+        <rect x="6" y="7" width="16" height="2" rx="1" fill="white" opacity="0.9" />
+        <rect x="6" y="12" width="12" height="2" rx="1" fill="white" opacity="0.7" />
+        <rect x="6" y="17" width="14" height="2" rx="1" fill="white" opacity="0.5" />
+        <circle cx="21" cy="19" r="5" fill="#3dd6a3" />
+        <path d="M19 19l1.5 1.5L23 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <div>
+        Biblioteca de Skills
+        <small>Visualizador pronto para integrar com GitHub</small>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      <input id="search" type="text" placeholder="Buscar skill..." autocomplete="off" />
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-n" id="total-count">0</div>
+        <div class="stat-l">skills</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" id="cat-count">0</div>
+        <div class="stat-l">categorias</div>
+      </div>
+      <div class="repo-badge">GitHub-ready</div>
+    </div>
+  </header>
+
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn all" onclick="filterCat('all', this)">Todas</button>
+  </div>
+
+  <div class="main" id="main-content"></div>
+  <div class="toast" id="toast"></div>
+
+  <div class="modal-overlay" id="skill-modal-overlay" onclick="closeSkillModal(event)">
+    <div class="modal">
+      <div class="modal-head">
+        <div class="top-actions" style="justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <div>
+            <div class="modal-title" id="skill-modal-title"></div>
+            <div class="modal-sub" id="skill-modal-sub"></div>
+          </div>
+          <button class="btn-ghost" onclick="closeSkillModal()">Fechar</button>
+        </div>
+      </div>
+
+      <div class="meta-bar">
+        <div class="meta-card">
+          <div class="meta-label">Path da skill</div>
+          <div class="meta-value" id="skill-modal-path"></div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-label">Link GitHub</div>
+          <div class="meta-value" id="skill-modal-link"></div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-label">Arquivo carregado</div>
+          <div class="meta-value" id="skill-modal-file"></div>
+        </div>
+      </div>
+
+      <div class="code-wrap">
+        <pre class="code-box" id="skill-code">Selecione uma skill.</pre>
+      </div>
+
+      <div class="modal-footer">
+        <div class="footer-actions">
+          <button class="btn-ghost" onclick="copySelectedSkill()">Copiar skill</button>
+          <button class="btn-ghost" onclick="copySelectedLink()">Copiar link</button>
+          <button class="btn-primary" onclick="downloadSelectedSkill()">Download</button>
+        </div>
+
+        <div class="ai-actions">
+          <select id="ai-select" class="ai-select">
+            <option value="chatgpt">ChatGPT</option>
+            <option value="claude">Claude</option>
+            <option value="gemini">Gemini</option>
+            <option value="perplexity">Perplexity</option>
+            <option value="grok">Grok</option>
+            <option value="copilot">Copilot</option>
+          </select>
+          <button class="btn-primary" onclick="openWithAI()">Enviar para IA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SKILLS = {
+      "_ai-agentes": ["agent-browser","agent-development","agent-evaluation","agent-file-specs","agent-framework-azure-ai-py","agent-governance","agent-manager-skill","agent-memory-mcp","agent-memory-systems","agent-orchestration-improve-agent","agent-orchestration-multi-agent-optimize","agent-orchestrator","agent-owasp-compliance","agent-squad","agent-supply-chain","agent-tool-builder","agent-tools","agent-ui","agentflow","agentfolio","agentic-actions-auditor","agentic-eval","agentmail","agentphone","agents-md","agents-v2-py","agentspace","agenttrace-session-audit","ai-agent-development","ai-agents-architect","ai-analyzer","ai-automation-workflows","ai-engineer","ai-engineering-toolkit","ai-inventory","ai-md","ai-ml","ai-product","ai-product-photography","ai-rag-pipeline","ai-ready","ai-team-orchestration","ai-tool-handoff","ai-wrapper-product","autonomous-agent-patterns","autonomous-agents","crewai","embedding-strategies","langchain-architecture","langgraph","llm-evaluation","llm-ops","llm-prompt-optimizer","local-llm-expert","mcp-builder","mcp-integration","mcp-security-audit","mcp-tool-developer","multi-agent-architect","multi-agent-patterns","pinecone-rag","pydantic-ai","qdrant-performance-optimization","rag-engineer","rag-implementation","vector-database-engineer","voice-agents"],
+      "_automação-integrações": ["activecampaign-automation","airtable-automation","amplitude-automation","browser-automation","github-automation","hubspot-automation","instagram-automation","jira-automation","linear-automation","linkedin-automation","monday-automation","n8n-workflow-patterns","notion-automation","posthog-automation","slack-automation","tiktok-automation","workflow-automation","youtube-automation","zapier-make-patterns","zendesk-automation"],
+      "_backend-apis": ["api-design-principles","api-documentation","api-documentation-generator","api-endpoint-builder","api-patterns","api-security-best-practices","api-security-testing","backend-architect","backend-dev-guidelines","bun-development","convex","django-pro","dotnet-backend","drizzle-orm-expert","fastapi-clean-architecture","fastapi-pro","golang-pro","graphql","graphql-architect","inngest","java-pro","java-springboot","laravel-expert","nestjs-expert","nodejs-backend-patterns","php-pro","prisma-expert","python-fastapi-development"],
+      "_banco-de-dados": ["azure-cosmos-py","database","database-architect","database-design","database-migration","database-optimizer","firebase","postgresql","postgresql-optimization","sql-optimization","sql-pro","supabase","supabase-automation"],
+      "_cloud-devops": ["airflow-dag-patterns","aws-cdk-python-setup","aws-compliance-checker","aws-cost-optimize","aws-iam-best-practices","aws-security-audit","aws-serverless","azure-ai-projects-py","azure-functions","azure-static-web-apps","cicd-automation-workflow-automate","cloud-architect","cloud-devops","cloudflare-deploy","cloudflare-workers-expert","deploy-to-vercel","deployment-engineer","devops-deploy","devops-troubleshooter","docker-expert","github-actions-advanced","github-actions-templates","helm-chart-scaffolding","k8s-manifest-generator","kubernetes-architect","kubernetes-deployment","netlify-deploy","render-deploy","terraform-infrastructure","terraform-specialist","vercel-ai-sdk-expert","vercel-automation","vercel-deploy"],
+      "_conteúdo-escrita": ["blog-writing-guide","code-documentation-code-explain","content-creator","content-marketer","content-strategy","copywriting","documentation","documentation-writer","email-drafter","email-sequence","legal-writing","meeting-minutes","readme","writing-guidelines","writing-skills"],
+      "_dados-analytics": ["analytics-product","analytics-tracking","data-engineer","data-scientist","data-visualization","jupyter-notebook","machine-learning-ops-ml-pipeline","matplotlib","ml-engineer","mlops-engineer","plotly"],
+      "_design-ui-ux": ["3d-web-experience","algorithmic-art","angular-ui-patterns","design-an-interface","design-orchestration","figma","figma-automation","figma-generate-design","figma-implement-design","flux-image","frontend-design","gsap-framer-scroll-animation","landing-page-design","linux-shell-scripting","linux-troubleshooting","logo-design-guide","mermaid-diagram","mermaid-expert","mobile-design","radix-ui-design-system","react-ui-patterns","tailwind-design-system","tailwind-patterns","threejs-animation","threejs-fundamentals","threejs-shaders","ui-a11y","ui-component","ui-review","ui-ux-designer","ux-audit","ux-copy","ux-flow","ux-ui-design"],
+      "_frontend-react-js-ts": ["angular","angular-best-practices","angular-migration","angular-state-management","astro","hono","javascript-mastery","javascript-pro","javascript-testing-patterns","modern-javascript-patterns","nextjs-app-router-patterns","nextjs-best-practices","nextjs-supabase-auth","react-audit-grep-patterns","react-best-practices","react-flow-architect","react-native-architecture","react-native-skills","react-nextjs-development","react-patterns","react-state-management","sveltekit","trpc-fullstack","typescript-advanced-types","typescript-expert","typescript-pro","zustand-store-ts"],
+      "_games": ["game-development","game-engine","unity-developer","unreal-engine-cpp-pro"],
+      "_legal-compliance": ["accessibility-compliance-accessibility-audit","advogado-criminal","advogado-especialista","legal-advisor"],
+      "_linguagens-ferramentas": ["address-github-comments","bash-scripting","c-pro","cpp-pro","csharp-pro","git-advanced-workflows","git-commit","git-pr-review","github-issue-creator","github-release","python-development","python-pro","vscode-extension-guide-en"],
+      "_mídia-criação": ["ai-avatar-video","ai-image-generation","ai-music","ai-music-generation","ai-podcast","ai-podcast-creation","ai-video-generation","ai-voice-cloning","generate-image","image-edit","imagegen","text-to-speech","video-edit","voice-ai-development"],
+      "_mobile": ["android-cli","android-dev","android-jetpack-compose-expert","expo-deployment","expo-dev-client","flutter-expert","ios-developer","mobile-developer"],
+      "_outros": ["00-andruia-consultant","2slides-ppt-generator","007","10-andruia-skill-smith","20-andruia-niche-intelligence","ablation-planner","acceptance-orchestrator","accesslint-audit","accesslint-diff","accesslint-scan","accint-solve","ace-step","acquire-codebase-knowledge","acreadiness-assess","acreadiness-generate-instructions","acreadiness-policy","add-educational-comments","adhx","adobe-illustrator-scripting","advanced-evaluation","aegisops-ai","ai-content-pipeline","ai-dev-jobs-mcp","ai-native-cli","ai-social-media-content","ai-studio-image","aia-generation","algolia-search","alpha-vantage","amazon-alexa","api-documenter","api-fuzzing-bug-bounty","apify-actor-development","apify-ecommerce","apify-lead-generation","apify-market-research","apify-ultimate-scraper","app-builder","app-store-optimization","architecture","architecture-blueprint-generator","architecture-decision-records","architecture-patterns","arxiv","async-python-patterns","auth-implementation-patterns","auto-review-loop","blockchain-developer","brainstorming","browser-extension-builder","bug-hunter","business-analyst","chrome-extension-developer","clean-code","clerk-auth","cli-creator","code-analysis","code-refactoring-refactor-clean","code-review-checklist","code-reviewer","code-simplifier","codebase-audit-pre-push","codebase-cleanup-refactor-clean","customer-support","cv-generator","daily","debugging-strategies","deep-research","discord-bot-architect","domain-driven-design","dotnet-architect","dotnet-best-practices","engineering-manager","error-debugging-error-analysis","file-organizer","find-bugs","folder-structure-blueprint-generator","frontend-developer","full-stack-orchestration-full-stack-feature","gemini-api-dev","github","hr-pro","hugging-face-datasets","hugging-face-gradio","i18n-localization","incident-responder","incident-response-incident-response","interview-coach","langfuse","latex-paper-conversion","linkedin-content","lovable-cleanup","microservices-patterns","monorepo-architect","network-engineer","nodejs-best-practices","notion-knowledge-capture","observability-engineer","openai-docs","openapi-spec-generation","pdf","performance-engineer","performance-optimizer","power-bi-dax-optimization","qiskit","refactor","refactoring","research-lit","software-architecture","telegram-bot-builder","web-design-guidelines","web-design-reviewer","web-performance-optimization","web-scraper","wordpress","wordpress-plugin-development","wordpress-theme-development","xlsx","youtube-summarizer","zod-validation-expert"],
+      "_produto-marketing": ["ad-creative","ai-marketing-videos","ai-seo","brand-guidelines","landing-page-generator","marketing","marketing-psychology","prd","product-design","product-manager","seo"],
+      "_prompts-llm": ["ai-prompt-engineering-safety-review","prompt-engineer","prompt-engineering","prompt-optimizer"],
+      "_segurança": ["active-directory-attacks","anti-reversing-techniques","devsecops","ethical-hacking-methodology","frontend-security-coder","gdpr-compliant","pentest-checklist","security-audit","vulnerability-scanner","web-security-testing"],
+      "_testes-qa": ["ab-test-setup","e2e-testing","e2e-testing-patterns","playwright","python-testing-patterns","qa","tdd","tdd-workflow","test-automator","test-driven-development","testing","testing-patterns","unit-testing-test-generate"]
+    };
+
+    const DISPLAY_NAMES = {
+      '_ai-agentes': '🤖 AI & Agentes',
+      '_automação-integrações': '🔗 Automação & Integrações',
+      '_backend-apis': '🔧 Backend & APIs',
+      '_banco-de-dados': '🗄️ Banco de Dados',
+      '_cloud-devops': '☁️ Cloud & DevOps',
+      '_conteúdo-escrita': '📝 Conteúdo & Escrita',
+      '_dados-analytics': '📊 Dados & Analytics',
+      '_design-ui-ux': '🎨 Design & UI/UX',
+      '_frontend-react-js-ts': '⚛️ Frontend React JS TS',
+      '_games': '🎮 Games',
+      '_legal-compliance': '⚖️ Legal & Compliance',
+      '_linguagens-ferramentas': '⚙️ Linguagens & Ferramentas',
+      '_mídia-criação': '🎵 Mídia & Criação',
+      '_mobile': '📱 Mobile',
+      '_outros': '🗂️ Outros',
+      '_produto-marketing': '🚀 Produto & Marketing',
+      '_prompts-llm': '🧠 Prompts & LLM',
+      '_segurança': '🔒 Segurança',
+      '_testes-qa': '🧪 Testes & QA'
+    };
+
+    const COLORS = {
+      '_ai-agentes': '#7c6af0',
+      '_automação-integrações': '#2dd4bf',
+      '_backend-apis': '#86efac',
+      '_banco-de-dados': '#fdba74',
+      '_cloud-devops': '#22d3ee',
+      '_conteúdo-escrita': '#fbbf24',
+      '_dados-analytics': '#34d399',
+      '_design-ui-ux': '#f472b6',
+      '_frontend-react-js-ts': '#61dafb',
+      '_games': '#a3e635',
+      '_legal-compliance': '#f59e0b',
+      '_linguagens-ferramentas': '#94a3b8',
+      '_mídia-criação': '#fb7185',
+      '_mobile': '#818cf8',
+      '_outros': '#64748b',
+      '_produto-marketing': '#c084fc',
+      '_prompts-llm': '#a78bfa',
+      '_segurança': '#f87171',
+      '_testes-qa': '#4ade80'
+    };
+
+    const AI_LINKS = {
+      chatgpt: 'https://chatgpt.com/',
+      claude: 'https://claude.ai/',
+      gemini: 'https://gemini.google.com/',
+      perplexity: 'https://www.perplexity.ai/',
+      grok: 'https://grok.com/',
+      copilot: 'https://copilot.microsoft.com/'
+    };
+
+    const GITHUB_CONFIG = {
+      owner: 'SEU_USUARIO',
+      repo: 'SEU_REPOSITORIO',
+      branch: 'main',
+      basePath: ''
+    };
+
+    const FILE_CANDIDATES = [
+      'SKILL.md',
+      'README.md',
+      'skill.md',
+      'instructions.md',
+      'prompt.md',
+      'SYSTEM.md'
+    ];
+
+    let activeFilter = 'all';
+    let searchTerm = '';
+    let selectedSkill = null;
+    let selectedCategory = null;
+    let selectedFileName = null;
+    let selectedCode = '';
+
+    function getDisplayName(cat) {
+      return DISPLAY_NAMES[cat] || cat;
+    }
+
+    function getSkillPath(cat, skill) {
+      return `.agents\\skills\\${cat}\\${skill}`;
+    }
+
+    function getSkillHash(cat, skill) {
+      return `#skill=${encodeURIComponent(skill)}&cat=${encodeURIComponent(cat)}`;
+    }
+
+    function getSkillShareLink(cat, skill) {
+      return window.location.origin + window.location.pathname + getSkillHash(cat, skill);
+    }
+
+    function githubPath(cat, skill, fileName = '') {
+      const prefix = GITHUB_CONFIG.basePath ? `${GITHUB_CONFIG.basePath.replace(/^\/+|\/+$/g, '')}/` : '';
+      const full = `${prefix}.agents/skills/${cat}/${skill}${fileName ? '/' + fileName : ''}`;
+      return full.replace(/\/+/g, '/');
+    }
+
+    function githubBlobUrl(cat, skill, fileName) {
+      const path = githubPath(cat, skill, fileName);
+      return `https://github.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/blob/${GITHUB_CONFIG.branch}/${path}`;
+    }
+
+    function githubRawUrl(cat, skill, fileName) {
+      const path = githubPath(cat, skill, fileName);
+      return `https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}/${path}`;
+    }
+
+    function buildFilterBar() {
+      const bar = document.getElementById('filter-bar');
+      Object.entries(SKILLS).forEach(([cat, skills]) => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = `${getDisplayName(cat)} (${skills.length})`;
+        btn.dataset.cat = cat;
+        btn.onclick = () => filterCat(cat, btn);
+        bar.appendChild(btn);
+      });
+      document.getElementById('cat-count').textContent = Object.keys(SKILLS).length;
+    }
+
+    function renderAll() {
+      const container = document.getElementById('main-content');
+      container.innerHTML = '';
+      let totalVisible = 0;
+
+      Object.entries(SKILLS).forEach(([cat, skills]) => {
+        if (activeFilter !== 'all' && activeFilter !== cat) return;
+
+        const filtered = searchTerm
+          ? skills.filter(s => s.toLowerCase().includes(searchTerm))
+          : skills;
+
+        if (!filtered.length) return;
+        totalVisible += filtered.length;
+
+        const label = getDisplayName(cat);
+        const emoji = label.match(/^(\S+)/)?.[1] || '📁';
+        const name = label.replace(/^\S+\s*/, '');
+        const color = COLORS[cat] || '#888';
+
+        const section = document.createElement('div');
+        section.className = 'cat-section';
+        section.dataset.cat = cat;
+
+        const chips = filtered.map(skill => {
+          const highlight = searchTerm && skill.toLowerCase().includes(searchTerm) ? 'highlight' : '';
+          const skillEscaped = skill.replaceAll('\\', '\\\\').replaceAll("'", "\\'");
+          const catEscaped = cat.replaceAll('\\', '\\\\').replaceAll("'", "\\'");
+          return `<button class="skill-chip ${highlight}" onclick="openSkillModal('${skillEscaped}','${catEscaped}')">${skill}</button>`;
+        }).join('');
+
+        section.innerHTML = `
+          <div class="cat-header" onclick="toggleSection(this)">
+            <span class="cat-emoji">${emoji}</span>
+            <span class="cat-name" style="color:${color}">${name}</span>
+            <span class="cat-count">${filtered.length}</span>
+            <svg class="cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+          </div>
+          <div class="skills-grid">${chips}</div>
+        `;
+
+        container.appendChild(section);
+      });
+
+      document.getElementById('total-count').textContent = totalVisible;
+
+      if (!totalVisible) {
+        container.innerHTML = `<div class="empty"><h3>Nenhuma skill encontrada</h3><p>Tente outro termo de busca</p></div>`;
+      }
+    }
+
+    function toggleSection(header) {
+      header.parentElement.classList.toggle('collapsed');
+    }
+
+    function filterCat(cat, btn) {
+      activeFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      if (cat !== 'all') btn.classList.add('active');
+      renderAll();
+    }
+
+    async function copyText(value, message) {
+      try {
+        await navigator.clipboard.writeText(value);
+        toast(message);
+      } catch (e) {
+        toast('Não foi possível copiar');
+      }
+    }
+
+    function toast(message) {
+      const t = document.getElementById('toast');
+      t.textContent = message;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    async function fetchSkillContent(cat, skill) {
+      for (const fileName of FILE_CANDIDATES) {
+        const url = githubRawUrl(cat, skill, fileName);
+        try {
+          const response = await fetch(url, { cache: 'no-store' });
+          if (response.ok) {
+            const text = await response.text();
+            return { fileName, text, url };
+          }
+        } catch (error) {}
+      }
+      return null;
+    }
+
+    async function openSkillModal(skill, cat) {
+      selectedSkill = skill;
+      selectedCategory = cat;
+      selectedFileName = null;
+      selectedCode = '';
+
+      document.getElementById('skill-modal-title').textContent = skill;
+      document.getElementById('skill-modal-sub').textContent = `${getDisplayName(cat)} · Visualização completa do arquivo da skill.`;
+      document.getElementById('skill-modal-path').textContent = getSkillPath(cat, skill);
+      document.getElementById('skill-modal-link').textContent = githubBlobUrl(cat, skill, 'SKILL.md');
+      document.getElementById('skill-modal-file').textContent = 'Carregando...';
+      document.getElementById('skill-code').textContent = 'Carregando conteúdo da skill...';
+      document.getElementById('skill-modal-overlay').classList.add('open');
+      history.replaceState(null, '', getSkillHash(cat, skill));
+
+      const result = await fetchSkillContent(cat, skill);
+      if (result) {
+        selectedFileName = result.fileName;
+        selectedCode = result.text;
+        document.getElementById('skill-modal-file').textContent = result.fileName;
+        document.getElementById('skill-modal-link').textContent = githubBlobUrl(cat, skill, result.fileName);
+        document.getElementById('skill-code').textContent = result.text;
+      } else {
+        document.getElementById('skill-modal-file').textContent = 'Nenhum arquivo encontrado';
+        document.getElementById('skill-code').textContent = `Não foi possível carregar a skill no GitHub.\n\nConfira as configurações em GITHUB_CONFIG e confirme se existe um dos arquivos esperados: ${FILE_CANDIDATES.join(', ')}`;
+      }
+    }
+
+    function closeSkillModal(event) {
+      if (!event || event.target.id === 'skill-modal-overlay') {
+        document.getElementById('skill-modal-overlay').classList.remove('open');
+        selectedSkill = null;
+        selectedCategory = null;
+        selectedFileName = null;
+        selectedCode = '';
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+
+    function copySelectedSkill() {
+      if (!selectedSkill || !selectedCategory) return;
+      const payload = selectedCode || `${selectedSkill}\n${getSkillPath(selectedCategory, selectedSkill)}`;
+      copyText(payload, 'Conteúdo da skill copiado!');
+    }
+
+    function copySelectedLink() {
+      if (!selectedSkill || !selectedCategory) return;
+      const fileName = selectedFileName || 'SKILL.md';
+      copyText(githubBlobUrl(selectedCategory, selectedSkill, fileName), 'Link GitHub copiado!');
+    }
+
+    function downloadSelectedSkill() {
+      if (!selectedSkill || !selectedCategory) return;
+      const fileName = selectedFileName || 'SKILL.md';
+      window.open(githubRawUrl(selectedCategory, selectedSkill, fileName), '_blank', 'noopener,noreferrer');
+    }
+
+    async function openWithAI() {
+      if (!selectedSkill || !selectedCategory) return;
+      const ai = document.getElementById('ai-select').value;
+      const fileName = selectedFileName || 'SKILL.md';
+      const url = githubBlobUrl(selectedCategory, selectedSkill, fileName);
+      const prompt = [
+        `Analise a skill "${selectedSkill}".`,
+        `Categoria: ${selectedCategory}.`,
+        `Path: ${getSkillPath(selectedCategory, selectedSkill)}.`,
+        `Link GitHub: ${url}.`,
+        '',
+        'Quero:',
+        '1. resumo do objetivo da skill;',
+        '2. como ela funciona;',
+        '3. casos de uso;',
+        '4. dependências ou integrações relevantes;',
+        '5. sugestões de melhoria.',
+        '',
+        'Código completo da skill:',
+        selectedCode || '[conteúdo não carregado no momento]'
+      ].join('\n');
+
+      try {
+        await navigator.clipboard.writeText(prompt);
+        toast('Prompt com a skill copiado. Abrindo IA...');
+      } catch (e) {
+        toast('Abrindo IA...');
+      }
+
+      window.open(AI_LINKS[ai], '_blank', 'noopener,noreferrer');
+    }
+
+    function openSkillFromHash() {
+      const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      const skill = hash.get('skill');
+      const cat = hash.get('cat');
+
+      if (skill && cat && SKILLS[cat] && SKILLS[cat].includes(skill)) {
+        activeFilter = cat;
+        renderAll();
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        const btn = [...document.querySelectorAll('.filter-btn')].find(b => b.dataset.cat === cat);
+        if (btn) btn.classList.add('active');
+        openSkillModal(skill, cat);
+      }
+    }
+
+    document.getElementById('search').addEventListener('input', (e) => {
+      searchTerm = e.target.value.toLowerCase().trim();
+      renderAll();
+    });
+
+    buildFilterBar();
+    renderAll();
+    openSkillFromHash();
+  </script>
+</body>
+</html>
