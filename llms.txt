@@ -1,0 +1,134 @@
+# Skills Library – faelscarpato
+
+> Curated library of 449 AI-ready skills across 19 categories.
+> Each skill is a SKILL.md file with: role, purpose, instructions, tools, rules, output format and examples.
+> Ready to inject directly as system prompt into any LLM (ChatGPT, Claude, Gemini, Perplexity, etc).
+
+## Quick Start for AI Agents
+
+1. Read this file to find the category and skill slug you need.
+2. Fetch the raw SKILL.md: `https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/{category}/{skill}/SKILL.md`
+3. Inject the full content as your system prompt.
+4. Each skill is self-contained — no dependencies needed.
+
+## Repository
+
+- GitHub: https://github.com/faelscarpato/skills
+- Site: https://faelscarpato.github.io/skills/
+- Manifest JSON: https://raw.githubusercontent.com/faelscarpato/skills/main/skills-manifest.json
+- skills.json (index): https://raw.githubusercontent.com/faelscarpato/skills/main/skills.json
+- Flat routes: https://raw.githubusercontent.com/faelscarpato/skills/main/skills-routes.json
+
+## Skill File Format
+
+Each `SKILL.md` starts with YAML frontmatter:
+```yaml
+---
+name: skill-name
+description: "One-line description + trigger keywords"
+allowed-tools: Bash(*), Read, Write, ...
+---
+```
+Followed by: Role definition, Purpose, Instructions, Rules, Output format, Examples.
+
+---
+
+## 🤖 AI & Agentes (AI Agents & LLM Orchestration)
+
+**68 skills** | GitHub: https://github.com/faelscarpato/skills/tree/main/.agents/skills/_ai-agentes
+
+- [agent-browser](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-browser/SKILL.md)
+- [agent-development](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-development/SKILL.md)
+- [agent-evaluation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-evaluation/SKILL.md)
+- [agent-file-specs](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-file-specs/SKILL.md)
+- [agent-framework-azure-ai-py](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-framework-azure-ai-py/SKILL.md)
+- [agent-governance](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-governance/SKILL.md)
+- [agent-manager-skill](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-manager-skill/SKILL.md)
+- [agent-memory-mcp](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-memory-mcp/SKILL.md)
+- [agent-memory-systems](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-memory-systems/SKILL.md)
+- [agent-orchestration-improve-agent](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-orchestration-improve-agent/SKILL.md)
+- [agent-orchestration-multi-agent-optimize](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-orchestration-multi-agent-optimize/SKILL.md)
+- [agent-orchestrator](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-orchestrator/SKILL.md)
+- [agent-owasp-compliance](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-owasp-compliance/SKILL.md)
+- [agent-squad](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-squad/SKILL.md)
+- [agent-supply-chain](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-supply-chain/SKILL.md)
+- [agent-tool-builder](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-tool-builder/SKILL.md)
+- [agent-tools](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-tools/SKILL.md)
+- [agent-ui](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agent-ui/SKILL.md)
+- [agentflow](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agentflow/SKILL.md)
+- [agentfolio](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agentfolio/SKILL.md)
+- [agentic-actions-auditor](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agentic-actions-auditor/SKILL.md)
+- [agentic-eval](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agentic-eval/SKILL.md)
+- [agentmail](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agentmail/SKILL.md)
+- [agentphone](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agentphone/SKILL.md)
+- [agents-md](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agents-md/SKILL.md)
+- [agents-v2-py](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agents-v2-py/SKILL.md)
+- [agentspace](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agentspace/SKILL.md)
+- [agenttrace-session-audit](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/agenttrace-session-audit/SKILL.md)
+- [ai-agent-development](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-agent-development/SKILL.md)
+- [ai-agents-architect](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-agents-architect/SKILL.md)
+- [ai-analyzer](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-analyzer/SKILL.md)
+- [ai-automation-workflows](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-automation-workflows/SKILL.md)
+- [ai-engineer](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-engineer/SKILL.md)
+- [ai-engineering-toolkit](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-engineering-toolkit/SKILL.md)
+- [ai-inventory](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-inventory/SKILL.md)
+- [ai-md](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-md/SKILL.md)
+- [ai-ml](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-ml/SKILL.md)
+- [ai-product](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-product/SKILL.md)
+- [ai-product-photography](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-product-photography/SKILL.md)
+- [ai-rag-pipeline](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-rag-pipeline/SKILL.md)
+- [ai-ready](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-ready/SKILL.md)
+- [ai-team-orchestration](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-team-orchestration/SKILL.md)
+- [ai-tool-handoff](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-tool-handoff/SKILL.md)
+- [ai-wrapper-product](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/ai-wrapper-product/SKILL.md)
+- [autonomous-agent-patterns](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/autonomous-agent-patterns/SKILL.md)
+- [autonomous-agents](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/autonomous-agents/SKILL.md)
+- [crewai](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/crewai/SKILL.md)
+- [embedding-strategies](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/embedding-strategies/SKILL.md)
+- [langchain-architecture](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/langchain-architecture/SKILL.md)
+- [langgraph](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/langgraph/SKILL.md)
+- [llm-evaluation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/llm-evaluation/SKILL.md)
+- [llm-ops](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/llm-ops/SKILL.md)
+- [llm-prompt-optimizer](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/llm-prompt-optimizer/SKILL.md)
+- [local-llm-expert](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/local-llm-expert/SKILL.md)
+- [mcp-builder](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/mcp-builder/SKILL.md)
+- [mcp-integration](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/mcp-integration/SKILL.md)
+- [mcp-security-audit](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/mcp-security-audit/SKILL.md)
+- [mcp-tool-developer](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/mcp-tool-developer/SKILL.md)
+- [multi-agent-architect](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/multi-agent-architect/SKILL.md)
+- [multi-agent-patterns](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/multi-agent-patterns/SKILL.md)
+- [pinecone-rag](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/pinecone-rag/SKILL.md)
+- [pydantic-ai](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/pydantic-ai/SKILL.md)
+- [qdrant-performance-optimization](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/qdrant-performance-optimization/SKILL.md)
+- [rag-engineer](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/rag-engineer/SKILL.md)
+- [rag-implementation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/rag-implementation/SKILL.md)
+- [vector-database-engineer](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/vector-database-engineer/SKILL.md)
+- [voice-agents](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_ai-agentes/voice-agents/SKILL.md)
+
+## 🔗 Automação & Integrações (Automation & Integrations)
+
+**20 skills** | GitHub: https://github.com/faelscarpato/skills/tree/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es
+
+- [activecampaign-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/activecampaign-automation/SKILL.md)
+- [airtable-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/airtable-automation/SKILL.md)
+- [amplitude-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/amplitude-automation/SKILL.md)
+- [browser-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/browser-automation/SKILL.md)
+- [github-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/github-automation/SKILL.md)
+- [hubspot-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/hubspot-automation/SKILL.md)
+- [instagram-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/instagram-automation/SKILL.md)
+- [jira-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/jira-automation/SKILL.md)
+- [linear-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/linear-automation/SKILL.md)
+- [linkedin-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/linkedin-automation/SKILL.md)
+- [monday-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/monday-automation/SKILL.md)
+- [n8n-workflow-patterns](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/n8n-workflow-patterns/SKILL.md)
+- [notion-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/notion-automation/SKILL.md)
+- [posthog-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/posthog-automation/SKILL.md)
+- [slack-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/slack-automation/SKILL.md)
+- [tiktok-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/tiktok-automation/SKILL.md)
+- [workflow-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/workflow-automation/SKILL.md)
+- [youtube-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/youtube-automation/SKILL.md)
+- [zapier-make-patterns](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/zapier-make-patterns/SKILL.md)
+- [zendesk-automation](https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/_automa%C3%A7%C3%A3o-integra%C3%A7%C3%B5es/zendesk-automation/SKILL.md)
+
+---
+*Full list: https://raw.githubusercontent.com/faelscarpato/skills/main/SKILLS_DOCS.md*
