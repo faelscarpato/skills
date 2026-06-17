@@ -1,1 +1,107 @@
+{
+  "version": "1.0.0",
+  "baseWebsite": "https://faelscarpato.github.io/skills/",
+  "baseRepository": "https://github.com/faelscarpato/skills",
+  "baseRaw": "https://raw.githubusercontent.com/faelscarpato/skills/main/",
+  "routes": [
+    {
+      "category": "🤖 AI & Agentes",
+      "skill": "agent-browser",
+      "relativePath": ".agents/skills/🤖 AI & Agentes/agent-browser",
+      "websiteUrl": "https://faelscarpato.github.io/skills/#skill=agent-browser&cat=🤖 AI & Agentes",
+      "repositoryUrl": "https://github.com/faelscarpato/skills/tree/main/.agents/skills/🤖 AI & Agentes/agent-browser",
+      "blobCandidates": [
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-browser/SKILL.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-browser/README.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-browser/skill.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-browser/instructions.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-browser/prompt.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-browser/SYSTEM.md"
+      ],
+      "rawCandidates": [
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-browser/SKILL.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-browser/README.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-browser/skill.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-browser/instructions.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-browser/prompt.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-browser/SYSTEM.md"
+      ],
+      "preferredEntryFile": "SKILL.md"
+      },
+    {
+      "category": "🤖 AI & Agentes",
+      "skill": "agent-development",
+      "relativePath": ".agents/skills/🤖 AI & Agentes/agent-development",
+      "websiteUrl": "https://faelscarpato.github.io/skills/#skill=agent-development&cat=🤖 AI & Agentes",
+      "repositoryUrl": "https://github.com/faelscarpato/skills/tree/main/.agents/skills/🤖 AI & Agentes/agent-development",
+      "blobCandidates": [
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-development/SKILL.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-development/README.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-development/skill.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-development/instructions.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-development/prompt.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-development/SYSTEM.md"
+      ],
+      "rawCandidates": [
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-development/SKILL.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-development/README.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-development/skill.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-development/instructions.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-development/prompt.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-development/SYSTEM.md"
+      ],
+      "preferredEntryFile": "SKILL.md"
+    },
+    {
+      "category": "🤖 AI & Agentes",
+      "skill": "agent-evaluation",
+      "relativePath": ".agents/skills/🤖 AI & Agentes/agent-evaluation",
+      "websiteUrl": "https://faelscarpato.github.io/skills/#skill=agent-evaluation&cat=🤖 AI & Agentes",
+      "repositoryUrl": "https://github.com/faelscarpato/skills/tree/main/.agents/skills/🤖 AI & Agentes/agent-evaluation",
+      "blobCandidates": [
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/SKILL.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/README.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/skill.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/instructions.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/prompt.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/SYSTEM.md"
+      ],
+      "rawCandidates": [
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/SKILL.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/README.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/skill.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/instructions.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/prompt.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-evaluation/SYSTEM.md"
+      ],
+      "preferredEntryFile": "SKILL.md"
+    },
+    {
+      "category": "🤖 AI & Agentes",
+      "skill": "agent-file-specs",
+      "relativePath": ".agents/skills/🤖 AI & Agentes/agent-file-specs",
+      "websiteUrl": "https://faelscarpato.github.io/skills/#skill=agent-file-specs&cat=🤖 AI & Agentes",
+      "repositoryUrl": "https://github.com/faelscarpato/skills/tree/main/.agents/skills/🤖 AI & Agentes/agent-file-specs",
+      "blobCandidates": [
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/SKILL.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/README.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/skill.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/instructions.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/prompt.md",
+        "https://github.com/faelscarpato/skills/blob/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/SYSTEM.md"
+      ],
+      "rawCandidates": [
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/SKILL.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/README.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/skill.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/instructions.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/prompt.md",
+        "https://raw.githubusercontent.com/faelscarpato/skills/main/.agents/skills/🤖 AI & Agentes/agent-file-specs/SYSTEM.md"
+      ],
+      "preferredEntryFile": "SKILL.md"
+    }
 
+  ] 
+} 
+      
+      
